@@ -73,7 +73,8 @@ namespace netDxf.Tables
         {
             if (checkName)
             {
-                if (!IsValidName(name))
+                // wkaround anonymous named block clone
+                if (!name.StartsWith("*U") && !IsValidName(name))
                     throw new ArgumentException("The following characters \\<>/?\":;*|,=` are not supported for table object names.", nameof(name));
             }
 
