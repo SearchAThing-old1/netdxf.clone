@@ -363,6 +363,7 @@ namespace netDxf.Entities
                     Rotation = this.rotation,
                     Attributes = new AttributeCollection(copyAttributes)
                 };
+            foreach (Attribute att in entity.attributes) att.Owner = entity;
 
             foreach (XData data in this.XData.Values)
                 entity.XData.Add((XData)data.Clone());
