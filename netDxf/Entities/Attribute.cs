@@ -431,7 +431,6 @@ namespace netDxf.Entities
                 Position = this.position,
                 Flags = this.flags,
                 Rotation = this.rotation,
-                IsVisible = this.IsVisible,
                 Alignment = this.alignment
             };
 
