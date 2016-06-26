@@ -351,12 +351,21 @@ namespace netDxf.Entities
             return base.AsignHandle(entityNumber);
         }
 
-
         /// <summary>
         /// Creates a new Insert that is a copy of the current instance.
         /// </summary>
         /// <returns>A new Insert that is a copy of this instance.</returns>
         public override object Clone()
+        {
+            return Clone(null);
+        }
+
+        /// <summary>
+        /// Creates a new Insert that is a copy of the current instance.
+        /// </summary>
+        /// <param name="blockOverride">If not null allow to clone the Insert but use the given block.</param>
+        /// <returns>A new Insert that is a copy of this instance.</returns>
+        public Insert Clone(Block blockOverride)
         {
             // copy attributes
             List<Attribute> copyAttributes = new List<Attribute>();
@@ -376,7 +385,7 @@ namespace netDxf.Entities
                 IsVisible = this.IsVisible,
                 //Insert properties
                 Position = this.position,
-                Block = (Block) this.block.Clone(),
+                Block = blockOverride ?? (Block) this.block.Clone(),
                 Scale = this.scale,
                 Rotation = this.rotation,
             };
