@@ -1290,7 +1290,7 @@ namespace netDxf.IO
             this.chunk.Write(42, style.Height);
             this.chunk.Write(50, style.ObliqueAngle);
 
-            if (style.GlyphTypeface == null)
+/*            if (style.GlyphTypeface == null)
                 return;
 
             this.chunk.Write((short) XDataCode.AppReg, "ACAD");
@@ -1300,7 +1300,7 @@ namespace netDxf.IO
                 st[3] += 1;
             if (style.GlyphTypeface.Weight == FontWeights.Bold)
                 st[3] += 2;
-            this.chunk.Write((short) XDataCode.Int32, BitConverter.ToInt32(st, 0));
+            this.chunk.Write((short) XDataCode.Int32, BitConverter.ToInt32(st, 0));*/
         }
 
         /// <summary>

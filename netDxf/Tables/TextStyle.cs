@@ -24,7 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Windows.Media;
+//using System.Windows.Media;
 using netDxf.Collections;
 
 namespace netDxf.Tables
@@ -44,7 +44,7 @@ namespace netDxf.Tables
         private bool isVertical;
         private double obliqueAngle;
         private double widthFactor;
-        private readonly GlyphTypeface glyphTypeface;
+//        private readonly GlyphTypeface glyphTypeface;
         private readonly string fontFamilyName;
 
         #endregion
@@ -113,7 +113,7 @@ namespace netDxf.Tables
             this.isVertical = false;
             this.isBackward = false;
             this.isUpsideDown = false;
-            this.glyphTypeface = null;
+//            this.glyphTypeface = null;
             this.fontFamilyName = Path.GetFileNameWithoutExtension(font);
 
             // the following information is only applied to ttf not shx fonts
@@ -133,15 +133,15 @@ namespace netDxf.Tables
                     return;
                 this.font = file;
             }
-            this.glyphTypeface = new GlyphTypeface(new Uri(fontFile));
-            this.fontFamilyName = this.glyphTypeface.FamilyNames[CultureInfo.GetCultureInfo(1033)];
+//            this.glyphTypeface = new GlyphTypeface(new Uri(fontFile));
+  /*          this.fontFamilyName = this.glyphTypeface.FamilyNames[CultureInfo.GetCultureInfo(1033)];
             if (string.IsNullOrEmpty(this.fontFamilyName))
             {
                 ICollection<string> names = this.glyphTypeface.FamilyNames.Values;
                 IEnumerator<string> enumerator = names.GetEnumerator();
                 enumerator.MoveNext();
                 this.fontFamilyName = enumerator.Current;
-            }
+            }*/
         }
 
         #endregion
@@ -167,10 +167,10 @@ namespace netDxf.Tables
         /// <summary>
         /// Gets the GliphTypface associated with the font file, this is only applicable to true type fonts.
         /// </summary>
-        public GlyphTypeface GlyphTypeface
+/*        public GlyphTypeface GlyphTypeface
         {
             get { return this.glyphTypeface; }
-        }
+        }*/
 
         /// <summary>
         /// Gets or sets the text height.
