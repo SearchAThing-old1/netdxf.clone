@@ -3665,13 +3665,20 @@ namespace netDxf.IO
 
             this.chunk.Write(100, SubclassMarker.Text);
 
-            Vector3 ocsInsertion = MathHelper.Transform(attrib.Position, attrib.Normal, CoordinateSystem.World, CoordinateSystem.Object);
+            var insert = attrib.Owner;
+            double scale = UnitHelper.ConversionFactor(insert.Block.Record.Units, insert.Owner.Record.IsForInternalUseOnly ? this.doc.DrawingVariables.InsUnits : insert.Owner.Record.Units);
+            var attribPosition = new Vector3(
+                attrib.Definition.Position.X * scale * insert.Scale.X + insert.Position.X,
+                attrib.Definition.Position.Y * scale * insert.Scale.Y + insert.Position.Y,
+                attrib.Definition.Position.Z * scale * insert.Scale.Z + insert.Position.Z);
+            
+            Vector3 ocsInsertion = MathHelper.Transform(attribPosition, attrib.Normal, CoordinateSystem.World, CoordinateSystem.Object);            
 
             this.chunk.Write(10, ocsInsertion.X);
             this.chunk.Write(20, ocsInsertion.Y);
             this.chunk.Write(30, ocsInsertion.Z);
 
-            this.chunk.Write(40, attrib.Height);
+            this.chunk.Write(40, attrib.Height * insert.Scale.X);
             this.chunk.Write(41, attrib.WidthFactor);
 
             this.chunk.Write(7, this.EncodeNonAsciiCharacters(attrib.Style.Name));
