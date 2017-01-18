@@ -31,6 +31,7 @@ using netDxf.IO;
 using netDxf.Objects;
 using netDxf.Tables;
 using Attribute = netDxf.Entities.Attribute;
+using System.Text;
 
 namespace netDxf
 {
