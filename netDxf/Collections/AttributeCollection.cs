@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Attribute = netDxf.Entities.Attribute;
 
 namespace netDxf.Collections
@@ -162,5 +163,20 @@ namespace netDxf.Collections
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            for (int i = 0; i < this.Count; ++i)
+            {
+                var x = this[i];
+
+                if (i != 0) sb.Append(" ");
+                sb.Append($"{x.Definition.Tag}={x.Definition.Value}");
+            }
+
+            return sb.ToString();
+        }
     }
 }

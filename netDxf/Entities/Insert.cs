@@ -397,6 +397,11 @@ namespace netDxf.Entities
             return entity;
         }
 
+        public override string ToString()
+        {
+            return $"Block={Block.Name} Attributes={Attributes}";
+        }
+
         #endregion
 
         #region Explode
