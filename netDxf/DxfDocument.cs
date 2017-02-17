@@ -884,19 +884,7 @@ namespace netDxf
             }
                 
 #endif
-
-            var preamble = Encoding.Default.GetPreamble();
-
-            if (preamble.Length > 0)
-            {
-                var bytes = File.ReadAllBytes(file);
-
-                using (var fs = File.Create(file))
-                {
-                    fs.Write(bytes, preamble.Length, bytes.Length - preamble.Length);
-                }
-            }
-
+             
             return true;
         }
 
