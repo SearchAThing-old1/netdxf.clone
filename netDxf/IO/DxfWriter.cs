@@ -402,7 +402,12 @@ namespace netDxf.IO
         private void Open(Stream stream, Encoding encoding)
         {
             if (this.isBinary)
-                this.chunk = new BinaryCodeValueWriter(encoding == null ? new BinaryWriter(stream) : new BinaryWriter(stream, encoding));
+            {
+                if (Environment.OSVersion.Platform == PlatformID.Unix)
+                    this.chunk = new BinaryCodeValueWriter(encoding == null ? new BinaryWriter(stream) : new BinaryWriter(stream, new UTF8Encoding(false)));
+                else
+                    this.chunk = new BinaryCodeValueWriter(encoding == null ? new BinaryWriter(stream) : new BinaryWriter(stream, encoding));
+            }
             else
                 this.chunk = new TextCodeValueWriter(encoding == null ? new StreamWriter(stream) : new StreamWriter(stream, encoding));
         }
