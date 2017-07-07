@@ -1,6 +1,12 @@
 # netdxf.clone
 clone of netdxf https://netdxf.codeplex.com/SourceControl/network/forks/ldelana/Contrib03
 
+## versions
+
+- [net framework](https://github.com/devel0/netdxf.clone)
+- [mono](https://github.com/devel0/netdxf.clone/tree/no_presentation_core)
+- [net standard](https://github.com/devel0/netdxf.clone/tree/netstandard)
+
 ## license
 
 --------------------------------------------------------------------------------
