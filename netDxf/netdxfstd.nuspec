@@ -1,31 +1,17 @@
 <?xml version="1.0"?>
-<package 
-xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
-    <metadata>    
-		<id>netdxfstd</id>
-		
-		<version>1.0.0</version>
-		
-		<authors>Lorenzo Delana</authors>
-		
-		<owners>Lorenzo Delana</owners>
-		
-		<licenseUrl>https://github.com/devel0/netdxf.clone/tree/netstandard</licenseUrl>
-		<projectUrl>https://github.com/devel0/netdxf.clone/tree/netstandard</projectUrl>    
-		
-		<iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
-		
-		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		
-		<releaseNotes>Initial myget package</releaseNotes>
-
-		<description>Dxf reader/writer (netstandard port). Original source by Daniel Carvajal from https://netdxf.codeplex.com/</description>	
-		
-		<tags>netstd c# dxf</tags>		
-    </metadata>
-    	
-    <files>
-		<file src="bin/Release/netstandard1.4/netdxfstd.dll" target="lib/netstandard1.4/netdxfstd.dll" />
-		<file src="bin/Release/netstandard1.4/netdxfstd.xml" target="lib/netstandard1.4/netdxfstd.xml" />
-    </files>
+<package >
+  <metadata>
+    <id>netdxfstd</id>
+    <version>1.0.0</version>
+    <title>netDxf (netstandard)</title>
+    <authors>Daniel Carvajal</authors>
+    <owners>Lorenzo Delana</owners>
+    <licenseUrl>https://github.com/devel0/netdxf.clone/tree/netstandard#license</licenseUrl>
+    <projectUrl>https://github.com/devel0/netdxf.clone/tree/netstandard</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>dxf reader/writer netstandard porting of the original work by Daniel Carvajal from https://netdxf.codeplex.com</description>
+    <releaseNotes>Initial package</releaseNotes>
+    <copyright>netDxf Copyright(C) 2009-2017 Daniel Carvajal, Licensed under LGPL</copyright>
+    <tags>c# netstandard dxf</tags>
+  </metadata>
 </package>
