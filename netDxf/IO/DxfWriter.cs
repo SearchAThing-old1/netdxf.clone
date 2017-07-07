@@ -36,6 +36,7 @@ using netDxf.Units;
 using Attribute = netDxf.Entities.Attribute;
 using TextAlignment = netDxf.Entities.TextAlignment;
 using Trace = netDxf.Entities.Trace;
+using System.Runtime.InteropServices;
 
 namespace netDxf.IO
 {
@@ -180,7 +181,7 @@ namespace netDxf.IO
 
             this.doc.DrawingVariables.HandleSeed = this.doc.NumHandles.ToString("X");
 
-            this.Open(stream, this.doc.DrawingVariables.AcadVer < DxfVersion.AutoCad2007 ? Encoding.Default : null);
+            this.Open(stream, this.doc.DrawingVariables.AcadVer < DxfVersion.AutoCad2007 ? Encoding.GetEncoding(0) : null);
 
             // The comment group, 999, is not used in binary DXF files.
             if (!this.isBinary)
@@ -403,7 +404,7 @@ namespace netDxf.IO
         {
             if (this.isBinary)
             {
-                if (Environment.OSVersion.Platform == PlatformID.Unix)
+                if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                     this.chunk = new BinaryCodeValueWriter(encoding == null ? new BinaryWriter(stream) : new BinaryWriter(stream, new UTF8Encoding(false)));
                 else
                     this.chunk = new BinaryCodeValueWriter(encoding == null ? new BinaryWriter(stream) : new BinaryWriter(stream, encoding));

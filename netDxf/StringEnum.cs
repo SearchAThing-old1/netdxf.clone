@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace netDxf
@@ -37,7 +38,7 @@ namespace netDxf
         #region Instance implementation
 
         private readonly Type enumType;
-        private static readonly Hashtable stringValues = new Hashtable();
+        private static readonly Dictionary<object, object> stringValues = new Dictionary<object, object>();
 
         /// <summary>
         /// Creates a new <see cref="StringEnum"/> instance.
@@ -48,7 +49,7 @@ namespace netDxf
             if (enumType == null)
                 throw new ArgumentNullException(nameof(enumType));
 
-            if (!enumType.IsEnum)
+            if (!enumType.GetTypeInfo().IsEnum)
                 throw new ArgumentException(string.Format("Supplied type must be an Enum.  Type was {0}", enumType));
 
             this.enumType = enumType;
@@ -81,9 +82,9 @@ namespace netDxf
         /// <returns>String value array</returns>
         public Array GetStringValues()
         {
-            ArrayList values = new ArrayList();
+            var values = new List<object>();
             //Look for our string value associated with fields in this enum
-            foreach (FieldInfo fi in this.enumType.GetFields())
+            foreach (FieldInfo fi in this.enumType.GetTypeInfo().DeclaredFields)
             {
                 //Check for our custom attribute
                 StringValueAttribute[] attrs = fi.GetCustomAttributes(typeof (StringValueAttribute), false) as StringValueAttribute[];
@@ -103,9 +104,9 @@ namespace netDxf
         {
             Type underlyingType = Enum.GetUnderlyingType(this.enumType);
 
-            ArrayList values = new ArrayList();
+            var values = new List<object>();
             //Look for our string value associated with fields in this enum
-            foreach (FieldInfo fi in this.enumType.GetFields())
+            foreach (FieldInfo fi in this.enumType.GetTypeInfo().DeclaredFields)
             {
                 //Check for our custom attribute
                 StringValueAttribute[] attrs = fi.GetCustomAttributes(typeof (StringValueAttribute), false) as StringValueAttribute[];
@@ -174,7 +175,7 @@ namespace netDxf
             else
             {
                 //Look for our 'StringValueAttribute' in the field's custom attributes
-                FieldInfo fi = type.GetField(value.ToString());
+                FieldInfo fi = type.GetTypeInfo().GetDeclaredField(value.ToString());
                 StringValueAttribute[] attrs = fi.GetCustomAttributes(typeof (StringValueAttribute), false) as StringValueAttribute[];
                 if (attrs != null)
                     if (attrs.Length > 0)
@@ -212,11 +213,13 @@ namespace netDxf
             object output = null;
             string enumStringValue = null;
 
-            if (!type.IsEnum)
+            var ti = type.GetTypeInfo();
+
+            if (!ti.IsEnum)
                 throw new ArgumentException(string.Format("Supplied type must be an Enum.  Type was {0}", type));
 
             //Look for our string value associated with fields in this enum
-            foreach (FieldInfo fi in type.GetFields())
+            foreach (FieldInfo fi in ti.DeclaredFields)
             {
                 //Check for our custom attribute
                 StringValueAttribute[] attrs = fi.GetCustomAttributes(typeof (StringValueAttribute), false) as StringValueAttribute[];

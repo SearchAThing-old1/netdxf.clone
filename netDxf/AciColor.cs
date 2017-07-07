@@ -22,7 +22,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Globalization;
 using System.Threading;
 
@@ -458,6 +457,7 @@ namespace netDxf
         {
         }
 
+        /*
         /// <summary>
         /// Initializes a new instance of the <c>AciColor</c> class.
         /// </summary>
@@ -466,7 +466,7 @@ namespace netDxf
         public AciColor(Color color)
             : this(color.R, color.G, color.B)
         {
-        }
+        }*/
 
         /// <summary>
         /// Initializes a new instance of the <c>AciColor</c> class.
@@ -705,6 +705,7 @@ namespace netDxf
             return new Vector3(h, s, l);
         }
 
+        /*
         /// <summary>
         /// Converts the AciColor to a <see cref="Color">color</see>.
         /// </summary>
@@ -715,8 +716,9 @@ namespace netDxf
             if (this.index < 1 || this.index > 255) //default color definition for ByLayer and ByBlock colors
                 return Color.White;
             return Color.FromArgb(this.r, this.g, this.b);
-        }
+        }*/
 
+            /*
         /// <summary>
         /// Converts a <see cref="Color">color</see> to an <see cref="Color">AciColor</see>.
         /// </summary>
@@ -728,7 +730,7 @@ namespace netDxf
             this.b = color.B;
             this.useTrueColor = true;
             this.index = RgbToAci(this.r, this.g, this.b);
-        }
+        }*/
 
         /// <summary>
         /// Gets the entity 24-bit color value from an AciColor.
@@ -791,7 +793,7 @@ namespace netDxf
             if (this.index == 256)
                 return "ByLayer";
             if (this.useTrueColor)
-                return string.Format("{0}{3}{1}{3}{2}", this.r, this.g, this.b, Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator);
+                return string.Format("{0}{3}{1}{3}{2}", this.r, this.g, this.b, CultureInfo.CurrentCulture.TextInfo.ListSeparator);
 
             return this.index.ToString(CultureInfo.CurrentCulture);
         }

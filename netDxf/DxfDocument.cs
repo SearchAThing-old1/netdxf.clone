@@ -779,7 +779,7 @@ namespace netDxf
 
 #if DEBUG
             DxfDocument document = dxfReader.Read(stream);
-            stream.Close();
+            stream.Dispose();
 #else
             DxfDocument document;
             try
@@ -868,7 +868,7 @@ namespace netDxf
 
 #if DEBUG
             dxfWriter.Write(stream, this, isBinary);
-            stream.Close();
+            stream.Dispose();
 #else
             try
             {
@@ -968,7 +968,7 @@ namespace netDxf
             }
             finally
             {
-                stream.Close();
+                stream.Dispose();
             }
 
             if (string.IsNullOrEmpty(value))

@@ -565,9 +565,9 @@ namespace netDxf
         public override string ToString()
         {
             StringBuilder s = new StringBuilder();
-            s.Append(string.Format("|{0}{3} {1}{3} {2}|" + Environment.NewLine, this.m11, this.m12, this.m13, Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator));
-            s.Append(string.Format("|{0}{3} {1}{3} {2}|" + Environment.NewLine, this.m21, this.m22, this.m23, Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator));
-            s.Append(string.Format("|{0}{3} {1}{3} {2}|" + Environment.NewLine, this.m31, this.m32, this.m33, Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator));
+            s.Append(string.Format("|{0}{3} {1}{3} {2}|" + Environment.NewLine, this.m11, this.m12, this.m13, System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator));
+            s.Append(string.Format("|{0}{3} {1}{3} {2}|" + Environment.NewLine, this.m21, this.m22, this.m23, System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator));
+            s.Append(string.Format("|{0}{3} {1}{3} {2}|" + Environment.NewLine, this.m31, this.m32, this.m33, System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator));
             return s.ToString();
         }
 
@@ -578,7 +578,7 @@ namespace netDxf
         /// <returns>A string text.</returns>
         public string ToString(IFormatProvider provider)
         {
-            string separator = Thread.CurrentThread.CurrentCulture.TextInfo.ListSeparator;
+            string separator = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
             StringBuilder s = new StringBuilder();
             s.Append(string.Format("|{0}{3}{1}{3}{2}|" + Environment.NewLine, this.m11.ToString(provider), this.m12.ToString(provider), this.m13.ToString(provider), separator));
             s.Append(string.Format("|{0}{3}{1}{3}{2}|" + Environment.NewLine, this.m21.ToString(provider), this.m22.ToString(provider), this.m23.ToString(provider), separator));

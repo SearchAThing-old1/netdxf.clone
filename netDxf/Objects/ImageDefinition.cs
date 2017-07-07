@@ -22,11 +22,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using netDxf.Collections;
 using netDxf.Tables;
 using netDxf.Units;
+using ImageSharp;
 
 namespace netDxf.Objects
 {
@@ -180,13 +180,13 @@ namespace netDxf.Objects
             this.fileName = fileName;
 
             try
-            {
-                using (Image bitmap = Image.FromFile(fileName))
+            {                                
+                using (var bitmap = Image.Load(fileName))
                 {
                     this.width = bitmap.Width;
                     this.height = bitmap.Height;
-                    this.horizontalResolution = bitmap.HorizontalResolution;
-                    this.verticalResolution = bitmap.VerticalResolution;
+                    this.horizontalResolution = bitmap.MetaData.HorizontalResolution;
+                    this.verticalResolution = bitmap.MetaData.VerticalResolution;
                     // the System.Drawing.Image stores the image resolution in inches
                     this.resolutionUnits = ImageResolutionUnits.Inches;
                 }

@@ -117,8 +117,8 @@ namespace netDxf.Entities
                         dimText = LinearUnitFormat.ToScientific(measure, unitFormat);
                         break;
                     case LinearUnitType.WindowsDesktop:
-                        unitFormat.LinearDecimalPlaces = (short) Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalDigits;
-                        unitFormat.DecimalSeparator = Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+                        unitFormat.LinearDecimalPlaces = (short) System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalDigits;
+                        unitFormat.DecimalSeparator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
                         dimText = LinearUnitFormat.ToDecimal(measure*style.DimScaleLinear, unitFormat);
                         break;
                 }

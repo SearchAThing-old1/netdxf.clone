@@ -123,7 +123,9 @@ namespace netDxf.Tables
 
         #endregion
 
-        #region public properties
+#region public properties
+
+        public static string FontPath = "TODO TextStyle.FontPath";
 
         /// <summary>
         /// Gets or sets the text style font file name.
@@ -264,9 +266,9 @@ namespace netDxf.Tables
             internal set { base.Owner = value; }
         }
 
-        #endregion
+#endregion
 
-        #region private methods
+#region private methods
 
         private void TrueTypeFontCheck(string ttfFont)
         {
@@ -283,7 +285,7 @@ namespace netDxf.Tables
             else
             {
                 string file = Path.GetFileName(ttfFont);
-                fontFile = string.Format("{0}{1}{2}", Environment.GetFolderPath(Environment.SpecialFolder.Fonts),
+                fontFile = string.Format("{0}{1}{2}", FontPath,
                     Path.DirectorySeparatorChar, file);
                 // if the ttf does not even exist in the font system folder 
                 if (!File.Exists(fontFile))
@@ -301,9 +303,9 @@ namespace netDxf.Tables
             }*/
         }
 
-        #endregion
+#endregion
 
-        #region overrides
+#region overrides
 
         /// <summary>
         /// Creates a new TextStyle that is a copy of the current instance.
@@ -332,6 +334,6 @@ namespace netDxf.Tables
             return this.Clone(this.Name);
         }
 
-        #endregion
+#endregion
     }
 }
