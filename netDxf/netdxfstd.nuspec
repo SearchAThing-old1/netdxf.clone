@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>netdxfstd</id>
+    <id>netdxf.clone.netstd</id>
     <version>1.0.0</version>
     <title>netDxf (netstandard)</title>
-    <authors>Lorenzo Delana</authors>
+    <authors>Daniel Carvajal, Lorenzo Delana</authors>
     <owners>Lorenzo Delana</owners>
     <licenseUrl>https://github.com/devel0/netdxf.clone/tree/netstandard#license</licenseUrl>
     <projectUrl>https://github.com/devel0/netdxf.clone/tree/netstandard</projectUrl>    
