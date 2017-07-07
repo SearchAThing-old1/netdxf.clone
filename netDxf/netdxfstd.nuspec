@@ -6,7 +6,7 @@ xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
 		
 		<version>1.0.0</version>
 		
-		<authors>Daniel Carvajal, Lorenzo Delana</authors>
+		<authors>Lorenzo Delana</authors>
 		
 		<owners>Lorenzo Delana</owners>
 		
@@ -19,9 +19,7 @@ xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
 		
 		<releaseNotes>Initial myget package</releaseNotes>
 
-		<description>Dxf reader/writer (netstandard port). Original source from https://netdxf.codeplex.com/</description>
-		
-		<copyright>Copyright ©2009-2017 Daniel Carvajal (haplokuon@gmail.com)</copyright>
+		<description>Dxf reader/writer (netstandard port). Original source by Daniel Carvajal from https://netdxf.codeplex.com/</description>	
 		
 		<tags>netstd c# dxf</tags>		
     </metadata>
