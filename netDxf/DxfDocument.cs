@@ -792,7 +792,7 @@ namespace netDxf
             }
             finally
             {
-                stream.Close();
+                stream.Dispose();
             }
 
 #endif
@@ -880,7 +880,7 @@ namespace netDxf
             }
             finally
             {
-                stream.Close();
+                stream.Dispose();
             }
                 
 #endif
