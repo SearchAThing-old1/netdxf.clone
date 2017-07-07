@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package 
+xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>    
+		<id>netdxfstd</id>
+		
+		<version>1.0.0</version>
+		
+		<authors>Daniel Carvajal (haplokuon@gmail.com), Lorenzo Delana</authors>
+		
+		<owners>Lorenzo Delana</owners>
+		
+		<licenseUrl>https://github.com/devel0/netdxf.clone/tree/netstandard</licenseUrl>
+		<projectUrl>https://github.com/devel0/netdxf.clone/tree/netstandard</projectUrl>    
+		
+		<iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+		
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		
+		<releaseNotes>Initial myget package</releaseNotes>
+
+		<description>Dxf reader/writer (netstandard port). Original source from https://netdxf.codeplex.com/</description>
+		
+		<copyright>Copyright ©2009-2017 Daniel Carvajal (haplokuon@gmail.com)</copyright>
+		
+		<tags>netstd c# dxf</tags>		
+    </metadata>
+    	
+    <files>
+		<file src="bin/Release/netstandard1.4/netdxfstd.dll" target="lib/netstandard1.4/netdxfstd.dll" />
+		<file src="bin/Release/netstandard1.4/netdxfstd.xml" target="lib/netstandard1.4/netdxfstd.xml" />
+    </files>
+</package>

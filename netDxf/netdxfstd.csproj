@@ -4,6 +4,10 @@
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard1.4\netdxfstd.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="ImageSharp" Version="1.0.0-alpha9-00171" />
     <PackageReference Include="ImageSharp.Drawing" Version="1.0.0-alpha9-00166" />
