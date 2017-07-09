@@ -13,5 +13,8 @@
     <releaseNotes>Initial package</releaseNotes>
     <copyright>netDxf Copyright(C) 2009-2017 Daniel Carvajal, Licensed under LGPL</copyright>
     <tags>c# netstandard dxf</tags>
+	<dependencies>
+      <dependency id="System.IO.FileSystem" version="4.3.0"/>
+	</dependencies>	  
   </metadata>
 </package>
