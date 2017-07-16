@@ -1,6 +1,18 @@
 # netdxf.clone
 clone of netdxf https://netdxf.codeplex.com/SourceControl/network/forks/ldelana/Contrib03
 
+## Latest build
+
+| build |
+|---|
+| [![searchathing MyGet Build Status](https://www.myget.org/BuildSource/Badge/searchathing?identifier=b98518a9-5c63-484e-b740-c532328942e0)](https://www.myget.org/) |
+
+## Installation
+- nuget feeds
+  - searchathing :`https://www.myget.org/F/searchathing/api/v3/index.json`
+  - imagesharp : `https://www.myget.org/F/imagesharp/api/v3/index.json`
+- pre-release package : `netDxf`
+
 ## license
 
 --------------------------------------------------------------------------------
